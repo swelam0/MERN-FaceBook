@@ -31,6 +31,7 @@ app.get('/users', (req, res) => {
 	res.send('welcome to user page')
 })
 
+// api routes
 app.use('/api/user', userRoute)
 app.use('/api/auth', authRoute)
 
