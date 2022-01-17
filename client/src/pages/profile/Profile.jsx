@@ -1,7 +1,7 @@
 import Topbar from '../../components/topbar/Topbar'
 import Sidebar from '../../components/sidebar/Sidebar'
 import Feed from '../../components/feed/Feed'
-import Rightbar from '../../components/rightbar/Rightbar'
+import ProfileRightbar from '../../components/profileRightbar/ProfileRightbar'
 import styled from 'styled-components'
 
 const Profile = () => {
@@ -25,7 +25,7 @@ const Profile = () => {
 					<div className='profileRightBottom'>
 						<Feed />
 
-						<Rightbar />
+						<ProfileRightbar />
 					</div>
 				</div>
 			</Container>

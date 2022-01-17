@@ -20,7 +20,6 @@ const Rightbar = () => {
 }
 const Container = styled.div`
 	flex: 3;
-	height: calc(100vh-50px);
 
 	.rightbarWrapper {
 		padding: 20px 20px 0 0;
