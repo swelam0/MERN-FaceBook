@@ -6,10 +6,10 @@ const PostTop = ({ post }) => {
 	const userData = Users.map((user) => {
 		if (user.id === post.userId) {
 			return (
-				<>
+				<div className='postProfileData' key={user.id}>
 					<img className='postProfileImg' src={user.profilePicture} alt='img' />
 					<span className='postUsername'>{user.userName}</span>
-				</>
+				</div>
 			)
 		}
 	})
@@ -33,6 +33,11 @@ const Container = styled.div`
 	justify-content: space-between;
 
 	.postTopLeft {
+		display: flex;
+		align-items: center;
+	}
+
+	.postProfileData {
 		display: flex;
 		align-items: center;
 	}
