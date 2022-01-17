@@ -4,17 +4,19 @@ import Share from '../share/Share'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 
-const Feed = () => {
+const Feed = ({ userName }) => {
 	const [Posts, setPosts] = useState([])
 
 	useEffect(() => {
 		const fechtPosts = async () => {
-			const res = await axios.get('/posts/timeline/61e46c71ed1a293cdc1d6859')
+			const res = userName
+				? await axios.get(`/posts/profile/${userName}`)
+				: await axios.get(`/posts/timeline/61e46c71ed1a293cdc1d6859`)
 			setPosts(res.data)
 		}
 
 		fechtPosts()
-	}, [])
+	}, [userName])
 
 	return (
 		<Container>

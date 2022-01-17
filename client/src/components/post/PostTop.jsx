@@ -3,6 +3,7 @@ import { MoreVert } from '@material-ui/icons'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { format } from 'timeago.js'
+import { Link } from 'react-router-dom'
 
 const PostTop = ({ post }) => {
 	const PF = process.env.REACT_APP_PUBLIC_FOLDER
@@ -20,15 +21,17 @@ const PostTop = ({ post }) => {
 	return (
 		<Container>
 			<div className='postTopLeft'>
-				<img
-					className='postProfileImg'
-					src={
-						User.profilePicture
-							? PF + User.profilePicture
-							: PF + 'person/noAvatar.png'
-					}
-					alt='img'
-				/>
+				<Link to={`/profile/${User.userName}`}>
+					<img
+						className='postProfileImg'
+						src={
+							User.profilePicture
+								? PF + User.profilePicture
+								: PF + 'person/noAvatar.png'
+						}
+						alt='img'
+					/>
+				</Link>
 				<span className='postUsername'>{User.userName}</span>
 				<span className='postDate'>{format(post.createdAt)}</span>
 			</div>

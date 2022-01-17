@@ -24,14 +24,17 @@ ul {
 }
 
 a,
-button,
-a:active,
-a:focus,
-button:focus,
-button:active {
+button {
 	box-shadow: none;
 	box-sizing: unset;
 	outline: none;
 	border: unset;
 	text-decoration: none;
+}
+a:active,
+a:focus,
+a:visited,
+button:focus,
+button:active {
+	color: unset;
 }
