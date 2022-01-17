@@ -1,8 +1,11 @@
 import styled from 'styled-components'
 import PostTop from './PostTop'
 import PostCenter from './PostCenter'
+import { useState } from 'react'
 
 const Post = ({ post }) => {
+	const [like, setLike] = useState(post.like)
+
 	return (
 		<Container>
 			<div className='postWrapper'>
@@ -14,7 +17,7 @@ const Post = ({ post }) => {
 					<div className='postBottomLeft'>
 						<img className='likeIcon' src={'assets/like.png'} alt='' />
 						<img className='likeIcon' src='assets/heart.png' alt='' />
-						<span className='postLikeCounter'>{post.like} people like it</span>
+						<span className='postLikeCounter'>{like} people like it</span>
 					</div>
 					<div className='postBottomRight'>
 						<span className='postCommentText'>{post.comment} comments</span>
