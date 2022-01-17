@@ -25,9 +25,7 @@ const PostTop = ({ post }) => {
 					<img
 						className='postProfileImg'
 						src={
-							User.profilePicture
-								? PF + User.profilePicture
-								: PF + 'person/noAvatar.png'
+							User.profilePicture ? User.profilePicture : `${PF}/person/noAvatar.png`
 						}
 						alt='img'
 					/>
