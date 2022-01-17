@@ -76,7 +76,8 @@ const Container = styled.div`
 	overflow-y: scroll;
 	position: sticky;
 	top: 50px;
-	padding-right: 20px;
+	padding: 0 20px;
+	padding-top: 15px;
 
 	.sidebarWrapper {
 	}

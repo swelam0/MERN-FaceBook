@@ -18,7 +18,7 @@ const Home = () => {
 }
 const Container = styled.div`
 	display: flex;
-	padding: 15px;
+	padding-top: 15px;
 `
 
 export default Home
