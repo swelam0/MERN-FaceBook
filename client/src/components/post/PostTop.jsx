@@ -11,7 +11,7 @@ const PostTop = ({ post }) => {
 
 	useEffect(() => {
 		const getUser = async () => {
-			const res = await axios.get(`/users/${post.userId}`)
+			const res = await axios.get(`/users?userId=${post.userId}`)
 			setUser(res.data)
 		}
 

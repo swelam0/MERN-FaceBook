@@ -3,9 +3,22 @@ import Sidebar from '../../components/sidebar/Sidebar'
 import Feed from '../../components/feed/Feed'
 import ProfileRightbar from '../../components/profileRightbar/ProfileRightbar'
 import styled from 'styled-components'
+import axios from 'axios'
+import { useEffect, useState } from 'react'
 
 const Profile = () => {
 	const PF = process.env.REACT_APP_PUBLIC_FOLDER
+
+	const [User, setUser] = useState({})
+
+	useEffect(() => {
+		const fetchUser = async () => {
+			const res = await axios.get(`/users?userName=john`)
+			setUser(res.data)
+		}
+
+		fetchUser()
+	}, [])
 	return (
 		<>
 			<Topbar />
@@ -15,18 +28,32 @@ const Profile = () => {
 				<div className='profileRight'>
 					<div className='profileRightTop'>
 						<div className='profileCover'>
-							<img className='profileCoverImg' src={`${PF}/post/3.jpeg`} alt='' />
-							<img className='profileUserImg' src={`${PF}/person/7.jpeg`} alt='' />
+							<img
+								className='profileCoverImg'
+								src={
+									User.coverPicture ? PF + User.coverPicture : `${PF}/person/noCover.png`
+								}
+								alt=''
+							/>
+							<img
+								className='profileUserImg'
+								src={
+									User.profilePicture
+										? PF + User.profilePicture
+										: `${PF}/person/noAvatar.png`
+								}
+								alt=''
+							/>
 						</div>
 						<div className='profileInfo'>
-							<h4 className='profileInfoName'>Mohamed Swelam</h4>
-							<span className='profileInfoDesc'>Hello my friends!</span>
+							<h4 className='profileInfoName'>{User.userName}</h4>
+							<span className='profileInfoDesc'>{User.desc}</span>
 						</div>
 					</div>
 					<div className='profileRightBottom'>
-						<Feed userName='john' />
+						<Feed userName={User.userName} />
 
-						<ProfileRightbar />
+						<ProfileRightbar user={User} />
 					</div>
 				</div>
 			</Container>
