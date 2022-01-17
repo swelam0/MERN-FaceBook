@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import { MoreVert } from '@material-ui/icons'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
+import { format } from 'timeago.js'
 
 const PostTop = ({ post }) => {
 	const PF = process.env.REACT_APP_PUBLIC_FOLDER
@@ -29,7 +30,7 @@ const PostTop = ({ post }) => {
 					alt='img'
 				/>
 				<span className='postUsername'>{User.userName}</span>
-				<span className='postDate'>{post.date}</span>
+				<span className='postDate'>{format(post.createdAt)}</span>
 			</div>
 			<div className='postTopRight'>
 				<MoreVert />
