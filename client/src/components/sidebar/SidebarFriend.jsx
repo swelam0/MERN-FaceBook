@@ -1,40 +1,15 @@
 import styled from 'styled-components'
+import { Users } from '../../dummyData'
 
 const SidebarFriend = () => {
 	return (
 		<Container>
-			<li>
-				<img src='assets/person/2.jpeg' alt='img' />
-				<span>Jahn Doe</span>
-			</li>
-			<li>
-				<img src='assets/person/3.jpeg' alt='img' />
-				<span>Jahn Doe</span>
-			</li>
-			<li>
-				<img src='assets/person/2.jpeg' alt='img' />
-				<span>Jahn Doe</span>
-			</li>
-			<li>
-				<img src='assets/person/3.jpeg' alt='img' />
-				<span>Jahn Doe</span>
-			</li>
-			<li>
-				<img src='assets/person/2.jpeg' alt='img' />
-				<span>Jahn Doe</span>
-			</li>
-			<li>
-				<img src='assets/person/3.jpeg' alt='img' />
-				<span>Jahn Doe</span>
-			</li>
-			<li>
-				<img src='assets/person/2.jpeg' alt='img' />
-				<span>Jahn Doe</span>
-			</li>
-			<li>
-				<img src='assets/person/3.jpeg' alt='img' />
-				<span>Jahn Doe</span>
-			</li>
+			{Users.map((user) => (
+				<li key={user.id}>
+					<img src={user.profilePicture} alt='img' />
+					<span>{user.userName}</span>
+				</li>
+			))}
 		</Container>
 	)
 }

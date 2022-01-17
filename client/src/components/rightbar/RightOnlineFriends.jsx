@@ -1,36 +1,18 @@
 import styled from 'styled-components'
+import { Users } from '../../dummyData'
 
 const RightOnlineFriends = () => {
 	return (
 		<Container>
-			<li>
-				<div className='imgContainer'>
-					<img src='assets/person/3.jpeg' alt='user' />
-				</div>
+			{Users.map((user) => (
+				<li key={user.id}>
+					<div className='imgContainer'>
+						<img src={user.profilePicture} alt='user' />
+					</div>
 
-				<span className='userName'>John Doe</span>
-			</li>
-			<li>
-				<div className='imgContainer'>
-					<img src='assets/person/4.jpeg' alt='user' />
-				</div>
-
-				<span className='userName'>John Doe</span>
-			</li>
-			<li>
-				<div className='imgContainer'>
-					<img src='assets/person/5.jpeg' alt='user' />
-				</div>
-
-				<span className='userName'>John Doe</span>
-			</li>
-			<li>
-				<div className='imgContainer'>
-					<img src='assets/person/6.jpeg' alt='user' />
-				</div>
-
-				<span className='userName'>John Doe</span>
-			</li>
+					<span className='userName'>{user.userName}</span>
+				</li>
+			))}
 		</Container>
 	)
 }
