@@ -1,11 +1,15 @@
 import styled from 'styled-components'
 import TopRight from './TopRight'
 import TopCenter from './TopCenter'
+import { Link } from 'react-router-dom'
+
 const Topbar = () => {
 	return (
 		<TopbarContainer>
 			<TopbarLeft>
-				<span className='logo'>Facetok</span>
+				<Link to='/'>
+					<span className='logo'>Facetok</span>
+				</Link>
 			</TopbarLeft>
 
 			<TopCenter />
@@ -28,7 +32,6 @@ const TopbarContainer = styled.div`
 		margin-left: 20px;
 		font-weight: bold;
 		color: white;
-		cursor: pointer;
 	}
 `
 const TopbarLeft = styled.div`

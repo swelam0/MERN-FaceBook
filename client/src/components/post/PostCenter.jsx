@@ -5,8 +5,8 @@ const PostCenter = ({ post }) => {
 
 	return (
 		<Container>
-			<span className='postText'>{post.desc}</span>
-			<img className='postImg' src={PF + post.photo} alt='img' />
+			{post.desc && <span className='postText'>{post.desc}</span>}
+			{post.img && <img className='postImg' src={PF + post.img} alt='img' />}
 		</Container>
 	)
 }

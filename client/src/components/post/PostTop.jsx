@@ -1,24 +1,34 @@
 import styled from 'styled-components'
 import { MoreVert } from '@material-ui/icons'
-import { Users } from '../../dummyData'
+import { useEffect, useState } from 'react'
+import axios from 'axios'
 
 const PostTop = ({ post }) => {
 	const PF = process.env.REACT_APP_PUBLIC_FOLDER
-	const userData = Users.map((user) => {
-		if (user.id === post.userId) {
-			return (
-				<div className='postProfileData' key={user.id}>
-					<img className='postProfileImg' src={PF + user.profilePicture} alt='img' />
-					<span className='postUsername'>{user.userName}</span>
-				</div>
-			)
+	const [User, setUser] = useState({})
+
+	useEffect(() => {
+		const getUser = async () => {
+			const res = await axios.get(`/users/${post.userId}`)
+			setUser(res.data)
 		}
-	})
+
+		getUser()
+	}, [])
 
 	return (
 		<Container>
 			<div className='postTopLeft'>
-				{userData}
+				<img
+					className='postProfileImg'
+					src={
+						User.profilePicture
+							? PF + User.profilePicture
+							: PF + 'person/noAvatar.png'
+					}
+					alt='img'
+				/>
+				<span className='postUsername'>{User.userName}</span>
 				<span className='postDate'>{post.date}</span>
 			</div>
 			<div className='postTopRight'>

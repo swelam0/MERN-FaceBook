@@ -1,15 +1,27 @@
 import styled from 'styled-components'
 import Post from '../post/Post'
 import Share from '../share/Share'
-import { Posts } from '../../dummyData'
+import axios from 'axios'
+import { useEffect, useState } from 'react'
 
 const Feed = () => {
+	const [Posts, setPosts] = useState([])
+
+	useEffect(() => {
+		const fechtPosts = async () => {
+			const res = await axios.get('/posts/timeline/61e46c71ed1a293cdc1d6859')
+			setPosts(res.data)
+		}
+
+		fechtPosts()
+	}, [])
+
 	return (
 		<Container>
 			<div className='feedWrapper'>
 				<Share />
 				{Posts.map((post) => (
-					<Post key={post.id} post={post} />
+					<Post key={post._id} post={post} />
 				))}
 			</div>
 		</Container>
