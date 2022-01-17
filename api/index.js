@@ -9,6 +9,7 @@ dotenv.config()
 // api routes
 const userRoute = require('./routes/users')
 const authRoute = require('./routes/auth')
+const postRoute = require('./routes/posts')
 
 // express middleware
 app.use(express.json())
@@ -32,8 +33,9 @@ app.get('/users', (req, res) => {
 })
 
 // api routes
-app.use('/api/user', userRoute)
 app.use('/api/auth', authRoute)
+app.use('/api/users', userRoute)
+app.use('/api/posts', postRoute)
 
 // express sever
 app.listen(8800, () => {
