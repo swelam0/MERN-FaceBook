@@ -18,7 +18,7 @@ const Profile = () => {
 							<img className='profileUserImg' src='assets/person/7.jpeg' alt='' />
 						</div>
 						<div className='profileInfo'>
-							<h4 className='profileInfoName'>Safak Kocaoglu</h4>
+							<h4 className='profileInfoName'>Mohamed Swelam</h4>
 							<span className='profileInfoDesc'>Hello my friends!</span>
 						</div>
 					</div>
@@ -76,6 +76,7 @@ const Container = styled.div`
 
 	.profileInfoDesc {
 		font-weight: 300;
+		margin-bottom: 30px;
 	}
 
 	.profileRightBottom {
