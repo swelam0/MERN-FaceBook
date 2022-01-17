@@ -52,6 +52,19 @@ router.delete('/:id', async (req, res) => {
 })
 // like a post
 //  get a post
+router.get('/:id', async (req, res) => {
+	try {
+		const post = await Post.findById(req.params.id)
+		if (post) {
+			res.status(200).json(post)
+		} else {
+			res.status(403).json('post not found')
+		}
+	} catch (err) {
+		res.status(500).json(err)
+	}
+})
+
 //  get timeline posts
 
 module.exports = router
