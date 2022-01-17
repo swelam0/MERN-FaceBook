@@ -1,14 +1,16 @@
 import styled from 'styled-components'
 import Post from '../post/Post'
 import Share from '../share/Share'
+import { Posts } from '../../dummyData'
 
 const Feed = () => {
 	return (
 		<Container>
 			<div className='feedWrapper'>
 				<Share />
-				<Post />
-				<Post />
+				{Posts.map((post) => (
+					<Post key={post.id} post={post} />
+				))}
 			</div>
 		</Container>
 	)

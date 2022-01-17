@@ -1,14 +1,10 @@
 import styled from 'styled-components'
 
-const PostCenter = () => {
+const PostCenter = ({ post }) => {
 	return (
 		<Container>
-			<span className='postText'>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, quaerat
-				dolore blanditiis aperiam reiciendis veritatis molestiae odio architecto
-				labore dolorem.
-			</span>
-			<img className='postImg' src='assets/post/1.jpeg' alt='img' />
+			<span className='postText'>{post.desc}</span>
+			<img className='postImg' src={post.photo} alt='img' />
 		</Container>
 	)
 }

@@ -1,13 +1,24 @@
 import styled from 'styled-components'
 import { MoreVert } from '@material-ui/icons'
+import { Users } from '../../dummyData'
 
-const PostTop = () => {
+const PostTop = ({ post }) => {
+	const userData = Users.map((user) => {
+		if (user.id === post.userId) {
+			return (
+				<>
+					<img className='postProfileImg' src={user.profilePicture} alt='img' />
+					<span className='postUsername'>{user.userName}</span>
+				</>
+			)
+		}
+	})
+
 	return (
 		<Container>
 			<div className='postTopLeft'>
-				<img className='postProfileImg' src='assets/person/2.jpeg' alt='img' />
-				<span className='postUsername'>Jahn Doe</span>
-				<span className='postDate'>12/12/2012</span>
+				{userData}
+				<span className='postDate'>{post.date}</span>
 			</div>
 			<div className='postTopRight'>
 				<MoreVert />
