@@ -2,6 +2,8 @@ import styled from 'styled-components'
 import { Chat, Notifications, Person } from '@material-ui/icons'
 
 const TopRight = () => {
+	const PF = process.env.REACT_APP_PUBLIC_FOLDER
+
 	return (
 		<TopbarRight>
 			<div className='topbarLinks'>
@@ -25,7 +27,7 @@ const TopRight = () => {
 			</div>
 
 			<div className='topbarImg'>
-				<img src='/assets/person/1.jpeg' alt='profile' />
+				<img src={`${PF}/person/1.jpeg`} alt='profile' />
 			</div>
 		</TopbarRight>
 	)

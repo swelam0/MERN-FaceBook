@@ -1,10 +1,12 @@
 import styled from 'styled-components'
 
 const PostCenter = ({ post }) => {
+	const PF = process.env.REACT_APP_PUBLIC_FOLDER
+
 	return (
 		<Container>
 			<span className='postText'>{post.desc}</span>
-			<img className='postImg' src={post.photo} alt='img' />
+			<img className='postImg' src={PF + post.photo} alt='img' />
 		</Container>
 	)
 }

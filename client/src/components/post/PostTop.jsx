@@ -3,11 +3,12 @@ import { MoreVert } from '@material-ui/icons'
 import { Users } from '../../dummyData'
 
 const PostTop = ({ post }) => {
+	const PF = process.env.REACT_APP_PUBLIC_FOLDER
 	const userData = Users.map((user) => {
 		if (user.id === post.userId) {
 			return (
 				<div className='postProfileData' key={user.id}>
-					<img className='postProfileImg' src={user.profilePicture} alt='img' />
+					<img className='postProfileImg' src={PF + user.profilePicture} alt='img' />
 					<span className='postUsername'>{user.userName}</span>
 				</div>
 			)

@@ -2,11 +2,12 @@ import styled from 'styled-components'
 import { Users } from '../../dummyData'
 
 const SidebarFriend = () => {
+	const PF = process.env.REACT_APP_PUBLIC_FOLDER
 	return (
 		<Container>
 			{Users.map((user) => (
 				<li key={user.id}>
-					<img src={user.profilePicture} alt='img' />
+					<img src={PF + user.profilePicture} alt='img' />
 					<span>{user.userName}</span>
 				</li>
 			))}

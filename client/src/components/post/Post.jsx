@@ -5,7 +5,7 @@ import { useState } from 'react'
 
 const Post = ({ post }) => {
 	const [like, setLike] = useState(post.like)
-
+	const PF = process.env.REACT_APP_PUBLIC_FOLDER
 	return (
 		<Container>
 			<div className='postWrapper'>
@@ -15,8 +15,8 @@ const Post = ({ post }) => {
 
 				<div className='postBottom'>
 					<div className='postBottomLeft'>
-						<img className='likeIcon' src={'assets/like.png'} alt='' />
-						<img className='likeIcon' src='assets/heart.png' alt='' />
+						<img className='likeIcon' src={`${PF}/like.png`} alt='' />
+						<img className='likeIcon' src={`${PF}/heart.png`} alt='' />
 						<span className='postLikeCounter'>{like} people like it</span>
 					</div>
 					<div className='postBottomRight'>

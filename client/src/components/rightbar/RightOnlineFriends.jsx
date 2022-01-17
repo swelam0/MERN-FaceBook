@@ -2,12 +2,13 @@ import styled from 'styled-components'
 import { Users } from '../../dummyData'
 
 const RightOnlineFriends = () => {
+	const PF = process.env.REACT_APP_PUBLIC_FOLDER
 	return (
 		<Container>
 			{Users.map((user) => (
 				<li key={user.id}>
 					<div className='imgContainer'>
-						<img src={user.profilePicture} alt='user' />
+						<img src={PF + user.profilePicture} alt='user' />
 					</div>
 
 					<span className='userName'>{user.userName}</span>

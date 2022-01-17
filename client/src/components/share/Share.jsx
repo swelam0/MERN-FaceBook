@@ -2,11 +2,12 @@ import styled from 'styled-components'
 import { PermMedia, Label, Room, EmojiEmotions } from '@material-ui/icons'
 
 const Share = () => {
+	const PF = process.env.REACT_APP_PUBLIC_FOLDER
 	return (
 		<Container>
 			<div className='shareWrapper'>
 				<div className='shareTop'>
-					<img src='assets/person/1.jpeg' alt='user' />
+					<img src={`${PF}/person/1.jpeg`} alt='user' />
 					<input type='text' placeholder="what's in your mind?" />
 				</div>
 
